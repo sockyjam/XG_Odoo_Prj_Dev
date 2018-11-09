@@ -20,7 +20,31 @@ Liangli XinGang stock project, odoo
 1. 请确保以上目录正确；
 2. 确保python安装3.6版本；如果使用docker运行，则不需要python；
 3. 如使用docker，请确保docker和docker-compose可以正常工作；
-4.
 
 
-# 第一次运行：
+
+# 运行：
+## 第一次运行，请确保 dbdata 文件夹下没有任何文件
+cd docker
+docker-compose up -d    ; run all services as daemon
+docker-compose ps       ; check service status
+docker-compose exec odoo /bin/bash   ; enter docker container--odoo
+   -> /var/www/odoo-bin -c /etc/odoo/odoo.conf      ; run odoo !! in foreground;  and let it go. you can CTRL-C to stop it
+tail -n 200 docker/odoolog/odoo.log     ; read the log info
+
+docker-compose down     ; stop all services
+
+## 页面地址
+http://127.0.0.1:8069/web/database/manager    ; 管理数据库，可能提一次运行需要建立自己的数据库
+http://127.0.0.1:8069                         ; 首页入口，账号秘密通常是  admin  admin
+
+
+## 开发
+1. 建立一个新模块
+   docker-compose exec odoo /bin/bash    ; 进入odoo的container
+   cd /var/www/                          ; 进入odoo代码目录
+   ./odoo-bin scaffold todo addons_ext/  ; 然后就生成了todo文件夹，可以开始开发了
+
+2.
+
+
