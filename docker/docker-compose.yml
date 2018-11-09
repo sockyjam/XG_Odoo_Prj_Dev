@@ -1,0 +1,39 @@
+version: '2'
+services:
+
+  db:
+    build: psql
+    environment:
+      - POSTGRES_PASSWORD=odoopasswd
+      - POSTGRES_USER=odooadmin
+      - POSTGRES_DB=odoo_db
+      - PGDATA=/var/lib/postgresql/data  # default value
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+
+  odoo: # prv setting, use src app
+    build: odoo
+    ports:
+      - "8069:8069"
+      - "8071:8071"
+    expose:
+      - "8069"
+      - "8071"
+    depends_on:
+      - db
+    volumes:
+      - ../src_odoo/odoo:/var/www  # maybe no use, src dir
+      - ../addons_ext:/var/www/addons_ext # external addons, place all dev addons here
+      - ./odoodata:/var/lib/odoo # store odoo sys data
+      - ./odoolog:/var/log/odoo # store odoo log file
+      - ./odoo/odoo.conf:/etc/odoo/odoo.conf  # conf file
+
+
+
+
+
+
+
