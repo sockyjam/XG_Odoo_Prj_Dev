@@ -1,2 +1,13 @@
-# XG_Odoo_Prj_Dev
-Liangli XinGang stock project, odoo
+这个文件夹是存放Odoo源码的；
+代码请自行拷贝，为节省空间，github工程并不负责存放框架源码；
+请把Odoo源码存放此处，并命名为“odoo”。
+
+e.g.
+
+-- src_odoo_
+   |
+   |- odoo
+      |
+      |- .
+      |- .
+      |- .
