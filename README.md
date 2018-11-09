@@ -25,25 +25,25 @@
 
 # 运行：
 ## 第一次运行，请确保 dbdata 文件夹下没有任何文件
-  cd docker
-  docker-compose up -d    ; run all services as daemon
-  docker-compose ps       ; check service status
-  docker-compose exec odoo /bin/bash   ; enter docker container--odoo
-     -> /var/www/odoo-bin -c /etc/odoo/odoo.conf      ; run odoo !! in foreground;  and let it go. you can CTRL-C   to stop it
-  tail -n 200 docker/odoolog/odoo.log     ; read the log info
+  - cd docker
+  - docker-compose up -d    ; run all services as daemon
+  - docker-compose ps       ; check service status
+  - docker-compose exec odoo /bin/bash   ; enter docker container--odoo
+     -  -> /var/www/odoo-bin -c /etc/odoo/odoo.conf      ; run odoo !! in foreground;  and let it go. you can CTRL-C   to stop it
+  - tail -n 200 docker/odoolog/odoo.log     ; read the log info
 
-  docker-compose down     ; stop all services
+  - docker-compose down     ; stop all services
 
 ## 页面地址
-  http://127.0.0.1:8069/web/database/manager    ; 管理数据库，可能提一次运行需要建立自己的数据库
-  http://127.0.0.1:8069                         ; 首页入口，账号秘密通常是  admin  admin
+  - http://127.0.0.1:8069/web/database/manager    ; 管理数据库，可能提一次运行需要建立自己的数据库
+  - http://127.0.0.1:8069                         ; 首页入口，账号秘密通常是  admin  admin
 
 
 ## 开发
   1. 建立一个新模块
-     docker-compose exec odoo /bin/bash    ; 进入odoo的container
-     cd /var/www/                          ; 进入odoo代码目录
-     ./odoo-bin scaffold todo addons_ext/  ; 然后就生成了todo文件夹，可以开始开发了
+     - docker-compose exec odoo /bin/bash    ; 进入odoo的container
+     - cd /var/www/                          ; 进入odoo代码目录
+     - ./odoo-bin scaffold todo addons_ext/  ; 然后就生成了todo文件夹，可以开始开发了
 
   2.
 
