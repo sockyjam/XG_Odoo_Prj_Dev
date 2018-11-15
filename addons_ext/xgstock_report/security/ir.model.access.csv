@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_xgstock_report_xgstock_report,xgstock_report.xgstock_report,model_xgstock_report_xgstock_report,,1,0,0,0

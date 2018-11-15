@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_xgin_prd_xgin_prd,xgin_prd.xgin_prd,model_xgin_prd_xgin_prd,,1,0,0,0

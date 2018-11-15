@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="xgfinance.list">
+      <field name="name">XGFinance list</field>
+      <field name="model">xgfinance.xgfinance</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="xgfinance.action_window">
+      <field name="name">XGFinance window</field>
+      <field name="res_model">xgfinance.xgfinance</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="xgfinance.action_server">
+      <field name="name">XGFinance server</field>
+      <field name="model_id" ref="model_xgfinance_xgfinance"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="XGFinance" id="xgfinance.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="xgfinance.menu_1" parent="xgfinance.menu_root"/>
+    <menuitem name="Menu 2" id="xgfinance.menu_2" parent="xgfinance.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="xgfinance.menu_1_list" parent="xgfinance.menu_1"
+              action="xgfinance.action_window"/>
+    <menuitem name="Server to list" id="xgfinance" parent="xgfinance.menu_2"
+              action="xgfinance.action_server"/>
+    -->
+  </data>
+</odoo>
