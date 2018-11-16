@@ -10,7 +10,7 @@
     <record id="action_xgcrm_customer_company" model="ir.actions.act_window">
         <field name="name">客户公司</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">xg.customer</field>
+        <field name="res_model">res.partner</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->
@@ -45,7 +45,7 @@
     <record id="action_xgcrm_customer_person" model="ir.actions.act_window">
         <field name="name">客户人员</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">xg.customer</field>
+        <field name="res_model">res.partner</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->
@@ -81,7 +81,7 @@
     <record id="action_xgcrm_supplier_company" model="ir.actions.act_window">
         <field name="name">供应商公司</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">xg.customer</field>
+        <field name="res_model">res.partner</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->
@@ -119,7 +119,7 @@
     <record id="action_xgcrm_supplier_person" model="ir.actions.act_window">
         <field name="name">供应商人员</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">xg.customer</field>
+        <field name="res_model">res.partner</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->

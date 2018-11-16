@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import xg_customer
+from . import res_users
