@@ -1,60 +1,165 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="xgcrm.list">
-      <field name="name">XGCRM list</field>
-      <field name="model">xgcrm.xgcrm</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="xgcrm.action_window">
-      <field name="name">XGCRM window</field>
-      <field name="res_model">xgcrm.xgcrm</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="xgcrm.action_server">
-      <field name="name">XGCRM server</field>
-      <field name="model_id" ref="model_xgcrm_xgcrm"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
+    <menuitem name="XG客户管理"
+        id="menu_xgcrm_root" groups="base.group_system"/>
 
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="XGCRM" id="xgcrm.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="xgcrm.menu_1" parent="xgcrm.menu_root"/>
-    <menuitem name="Menu 2" id="xgcrm.menu_2" parent="xgcrm.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="xgcrm.menu_1_list" parent="xgcrm.menu_1"
-              action="xgcrm.action_window"/>
-    <menuitem name="Server to list" id="xgcrm" parent="xgcrm.menu_2"
-              action="xgcrm.action_server"/>
-    -->
+
+    <!--客户公司页面-->
+    <record id="action_xgcrm_customer_company" model="ir.actions.act_window">
+        <field name="name">客户公司</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">xg.customer</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加客户公司
+          </p><p>
+            请新建客户公司
+          </p>
+        </field>
+    </record>
+    <record id="action_xgcrm_customer_company_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.res_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_xgcrm_customer_company"/>
+    </record>
+    <record id="action_xgcrm_customer_company_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="act_window_id" ref="action_xgcrm_customer_company"/>
+    </record>
+    <record id="action_xgcrm_customer_company_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.view_partner_form"/>
+        <field name="act_window_id" ref="action_xgcrm_customer_company"/>
+    </record>
+
+    <!--客户人员页面-->
+    <record id="action_xgcrm_customer_person" model="ir.actions.act_window">
+        <field name="name">客户人员</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">xg.customer</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加客户人员
+          </p><p>
+            请新建客户联系人，并分配到公司名下
+          </p>
+        </field>
+    </record>
+    <record id="action_xgcrm_customer_person_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.res_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_xgcrm_customer_person"/>
+    </record>
+    <record id="action_xgcrm_customer_person_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="act_window_id" ref="action_xgcrm_customer_person"/>
+    </record>
+    <record id="action_xgcrm_customer_person_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.view_partner_form"/>
+        <field name="act_window_id" ref="action_xgcrm_customer_person"/>
+    </record>
+
+
+    <!--供应商公司页面-->
+    <record id="action_xgcrm_supplier_company" model="ir.actions.act_window">
+        <field name="name">供应商公司</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">xg.customer</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加供应商公司
+          </p><p>
+            请新建供应商公司
+          </p>
+        </field>
+    </record>
+    <record id="action_xgcrm_supplier_company_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.res_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_xgcrm_supplier_company"/>
+    </record>
+    <record id="action_xgcrm_supplier_company_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="act_window_id" ref="action_xgcrm_supplier_company"/>
+    </record>
+    <record id="action_xgcrm_supplier_company_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.view_partner_form"/>
+        <field name="act_window_id" ref="action_xgcrm_supplier_company"/>
+    </record>
+
+
+
+
+    <!--供应商人员页面-->
+    <record id="action_xgcrm_supplier_person" model="ir.actions.act_window">
+        <field name="name">供应商人员</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">xg.customer</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加供应商人员
+          </p><p>
+            请新建供应商人员，并分配到公司名下
+          </p>
+        </field>
+    </record>
+    <record id="action_xgcrm_supplier_person_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.res_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_xgcrm_supplier_person"/>
+    </record>
+    <record id="action_xgcrm_supplier_person_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="act_window_id" ref="action_xgcrm_supplier_person"/>
+    </record>
+    <record id="action_xgcrm_supplier_person_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.view_partner_form"/>
+        <field name="act_window_id" ref="action_xgcrm_supplier_person"/>
+    </record>
+
+
+
+    <menuitem name="客户" id="menu_xgcrm_customer" parent="menu_xgcrm_root" />
+    <menuitem name="公司" id="menu_xgcrm_customer_company" parent="menu_xgcrm_customer" action="action_xgcrm_customer_company"/>
+    <menuitem name="人员" id="menu_xgcrm_customer_person" parent="menu_xgcrm_customer" action="action_xgcrm_customer_person"/>
+
+
+    <menuitem name="供应商" id="menu_xgcrm_supplier" parent="menu_xgcrm_root" />
+    <menuitem name="公司" id="menu_xgcrm_supplier_company" parent="menu_xgcrm_supplier" action="action_xgcrm_supplier_company"/>
+    <menuitem name="人员" id="menu_xgcrm_supplier_person" parent="menu_xgcrm_supplier" action="action_xgcrm_supplier_person"/>
+
   </data>
 </odoo>
