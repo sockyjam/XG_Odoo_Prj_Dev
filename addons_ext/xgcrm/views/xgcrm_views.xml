@@ -53,16 +53,16 @@
         <field name="act_window_id" ref="action_xgcrm_customer_company"/>
     </record>
 
-    <record id="view_xgcrm_customer_company_filter" model="ir.ui.view">
-        <field name="name">view.xgcrm.customer.company.filter</field>
-        <field name="model">xgcrm.company</field>
-        <field name="arch" type="xml">
-            <search string="XGCrmCustomerCompanyFilter">
-                <filter name="isCustomer" string="来往客户" domain="[('is_customer', '=', 1)]"/>
-                <filter name="isSupplier" string="供应商" domain="[('is_supplier', '=', 1)]"/>
-           </search>
-        </field>
-    </record>
+    <!--<record id="view_xgcrm_customer_company_filter" model="ir.ui.view">-->
+        <!--<field name="name">view.xgcrm.customer.company.filter</field>-->
+        <!--<field name="model">xgcrm.company</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<search string="XGCrmCustomerCompanyFilter">-->
+                <!--<filter name="isCustomer" string="来往客户" domain="[('is_customer', '=', 1)]"/>-->
+                <!--<filter name="isSupplier" string="供应商" domain="[('is_supplier', '=', 1)]"/>-->
+           <!--</search>-->
+        <!--</field>-->
+    <!--</record>-->
 
     <!--客户人员页面-->
 
