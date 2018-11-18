@@ -22,6 +22,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'security/group_rule.xml',
         'views/menu.xml',
         'views/xgcrm_views.xml',
         'views/templates.xml',

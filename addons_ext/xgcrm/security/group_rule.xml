@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record model="ir.module.category" id="module_xgcrm_app">
+        <field name="name">XGCRM</field>
+        <field name="sequence">201</field>
+    </record>
+
+    <record model="res.groups" id="group_xgcrm_admin">
+        <field name="category_id" ref="module_xgcrm_app"/>
+        <field name="name">XGCRM 管理员</field>
+    </record>
+    <record model="res.groups" id="group_xgcrm_user">
+        <field name="category_id" ref="module_xgcrm_app"/>
+        <field name="name">XGCRM 用户</field>
+    </record>
+
+
+
+    <!--<data>-->
+        <!--<record model="ir.rule" id="xgcrm_company_read_rule">-->
+            <!--<field name="name">读取XGCRM公司信息</field>-->
+            <!--<field name="model_id" ref="model_xgcrm_company"/>-->
+            <!--<field name="global" eval="True"/>-->
+            <!--&lt;!&ndash;<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>&ndash;&gt;-->
+        <!--</record>-->
+    <!--</data>-->
+
+</odoo>
