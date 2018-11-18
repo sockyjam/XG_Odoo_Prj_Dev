@@ -53,6 +53,17 @@
         <field name="act_window_id" ref="action_xgcrm_customer_company"/>
     </record>
 
+    <record id="view_xgcrm_customer_company_filter" model="ir.ui.view">
+        <field name="name">view.xgcrm.customer.company.filter</field>
+        <field name="model">xgcrm.company</field>
+        <field name="arch" type="xml">
+            <search string="XGCrmCustomerCompanyFilter">
+                <filter name="isCustomer" string="来往客户" domain="[('is_customer', '=', 1)]"/>
+                <filter name="isSupplier" string="供应商" domain="[('is_supplier', '=', 1)]"/>
+           </search>
+        </field>
+    </record>
+
     <!--客户人员页面-->
 
 
@@ -76,7 +87,36 @@
         <field name="act_window_id" ref="action_xgcrm_supplier_company"/>
     </record>
 
-
+    <record id="view_xgcrm_supplier_company_form" model="ir.ui.view">
+        <field name="name">view.xgcrm.supplier.company.form</field>
+        <field name="model">xgcrm.company</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <form string="XGCrmSupplierCompanyForm">
+                <sheet>
+                    <group col="4">
+                        <field name="name"  placeholder="公司名称"/>
+                        <field name="is_supplier"  />
+                        <field name="state_id" placeholder="省份" />
+                        <field name="city"  placeholder="城市"/>
+                        <field name="street"  placeholder="街道地址"/>
+                        <field name="zip"  placeholder="邮编"/>
+                        <field name="email"  placeholder="电子邮箱"/>
+                        <field name="phone"  placeholder="座机电话"/>
+                        <field name="mobile"  placeholder="移动电话"/>
+                        <field name="user_ids"  />
+                        <field name="person"  />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_xgcrm_supplier_company_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_xgcrm_supplier_company_form"/>
+        <field name="act_window_id" ref="action_xgcrm_supplier_company"/>
+    </record>
 
 
     <!--供应商人员页面-->
