@@ -14,8 +14,7 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[("is_customer", "=", True)]</field>
-        <!--<field name="context">{'search_default_isCustomer':1}</field>-->
-        <!--<field name="search_view_id" ref="view_xgcrm_customer_company_filter"/>-->
+        <field name="context">{'default_is_customer': True}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             记录为空！还没有添加客户公司
@@ -31,6 +30,8 @@
         <field name="res_model">xgcrm.person</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="domain">[("is_customer", "=", True)]</field>
+        <field name="context">{'default_is_customer': True}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             记录为空！还没有添加客户人员
@@ -58,6 +59,7 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[("is_supplier", "=", True)]</field>
+        <field name="context">{'default_is_supplier': True}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             记录为空！还没有添加供应商公司
@@ -73,6 +75,8 @@
         <field name="res_model">xgcrm.person</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="domain">[("is_supplier", "=", True)]</field>
+        <field name="context">{'default_is_supplier': True}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             记录为空！还没有添加供应商人员

@@ -31,7 +31,7 @@ class Person(models.Model):
     _name = 'xgcrm.person'
     _description = 'XG CRM 体系的来往联系人对象 '
 
-    name = fields.Char(index=True, string='人员名称')
+    name = fields.Char(index=True, string='人员名字')
 
     company = fields.Many2one('xgcrm.company', string='对方所属公司')
 
