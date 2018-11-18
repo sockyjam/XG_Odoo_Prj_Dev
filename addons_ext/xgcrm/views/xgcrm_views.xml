@@ -14,6 +14,12 @@
             </tree>
         </field>
     </record>
+    <record id="action_xgcrm_customer_company_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_xgcrm_customer_company_tree"/>
+        <field name="act_window_id" ref="action_xgcrm_customer_company"/>
+    </record>
 
     <!--客户人员页面-->
 
@@ -27,18 +33,6 @@
 
     <!--供应商人员页面-->
 
-    <record id="action_xgcrm_supplier_person_view_tree" model="ir.actions.act_window.view">
-        <field name="sequence" eval="1"/>
-        <field name="view_mode">tree</field>
-        <field name="view_id" ref="base.view_partner_tree"/>
-        <field name="act_window_id" ref="action_xgcrm_supplier_person"/>
-    </record>
-    <record id="action_xgcrm_supplier_person_view_form" model="ir.actions.act_window.view">
-        <field name="sequence" eval="2"/>
-        <field name="view_mode">form</field>
-        <field name="view_id" ref="base.view_partner_form"/>
-        <field name="act_window_id" ref="action_xgcrm_supplier_person"/>
-    </record>
 
 
 
