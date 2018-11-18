@@ -1,3 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_xgcrm_xgcrm_company,xgcrm.company,model_xgcrm_company,,1,1,1,1
-access_xgcrm_xgcrm_person,xgcrm.person,model_xgcrm_person,,1,1,1,1
+access_xgcrm_xgcrm_company_admin,xgcrm.company.admin,model_xgcrm_company,base.group_system,1,1,1,1
+access_xgcrm_xgcrm_person_admin,xgcrm.person.admin,model_xgcrm_person,base.group_system,1,1,1,1
