@@ -9,8 +9,9 @@
         <field name="model">xgcrm.company</field>
         <field name="priority" eval="1"/>
         <field name="arch" type="xml">
-            <tree string="XGCrmCustomerCompany">
+            <tree string="XGCrmCustomerCompanyTree">
                 <field name="name"  />
+                <field name="city"  />
             </tree>
         </field>
     </record>
@@ -21,12 +22,59 @@
         <field name="act_window_id" ref="action_xgcrm_customer_company"/>
     </record>
 
+    <record id="view_xgcrm_customer_company_form" model="ir.ui.view">
+        <field name="name">view.xgcrm.customer.company.form</field>
+        <field name="model">xgcrm.company</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <form string="XGCrmCustomerCompanyForm">
+                <sheet>
+                    <group col="4">
+                        <field name="name"  placeholder="公司名称"/>
+                        <field name="is_customer"  />
+                        <field name="state_id" placeholder="省份" />
+                        <field name="city"  placeholder="城市"/>
+                        <field name="street"  placeholder="街道地址"/>
+                        <field name="zip"  placeholder="邮编"/>
+                        <field name="email"  placeholder="电子邮箱"/>
+                        <field name="phone"  placeholder="座机电话"/>
+                        <field name="mobile"  placeholder="移动电话"/>
+                        <field name="user_ids"  />
+                        <field name="person"  />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_xgcrm_customer_company_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_xgcrm_customer_company_form"/>
+        <field name="act_window_id" ref="action_xgcrm_customer_company"/>
+    </record>
+
     <!--客户人员页面-->
 
 
 
     <!--供应商公司页面-->
-
+    <record id="view_xgcrm_supplier_company_tree" model="ir.ui.view">
+        <field name="name">view.xgcrm.supplier.company.tree</field>
+        <field name="model">xgcrm.company</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="XGCrmSupplierCompany">
+                <field name="name"  />
+                <field name="street"  />
+            </tree>
+        </field>
+    </record>
+    <record id="action_xgcrm_supplier_company_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_xgcrm_supplier_company_tree"/>
+        <field name="act_window_id" ref="action_xgcrm_supplier_company"/>
+    </record>
 
 
 
