@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+
+        <menuitem name="XG 人员管理" id="menu_xghr_root"/>
+
+        <!-- 人员登记页面 -->
+        <record model="ir.actions.act_window" id="action_xghr_personnel_registration">
+          <field name="name">人员登记</field>
+          <field name="res_model">personnel.registration</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加人员信息
+            </p>
+            <p>
+            请新建人员
+            </p>
+          </field>
+        </record>
+
+          <!-- 人员分组页面 -->
+        <record model="ir.actions.act_window" id="action_xghr_personnel_group">
+          <field name="name">人员登记</field>
+          <field name="res_model">personnel.group</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加组信息
+            </p>
+            <p>
+            请新建组
+            </p>
+          </field>
+        </record>
+
+        <menuitem name="人员信息" id="menu_xghr_personnel_info" parent="menu_xghr_root" sequence="2"/>
+
+        <menuitem name="人员登记" id="menu_xghr_personnel_registration" parent="menu_xghr_personnel_info"
+            action="action_xghr_personnel_registration"/>
+
+        <menuitem name="工作种类" id="menu_xghr_personnel_group" parent="menu_xghr_personnel_info"
+            action="action_xghr_personnel_group"/>
+
+
+        <!-- 工单管理页面 -->
+
+        <record model="ir.actions.act_window" id="action_xghr_job_management">
+          <field name="name">工单管理</field>
+          <field name="res_model">job.management</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加人员信息
+            </p>
+            <p>
+            请新建人员
+            </p>
+          </field>
+        </record>
+
+
+     <menuitem name="工单管理" id="menu_xghr_job_management" parent="menu_xghr_root"
+               sequence="1"         action="action_xghr_job_management"/>
+
+
+
+
+
+
+
+
+
+
+
+    </data>
+</odoo>

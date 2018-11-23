@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "XGHR",
+    'name': "XG人员管理",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -24,12 +24,15 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
+        'security/account_security.xml',
+        'views/menus.xml',
+        'views/personnelRegistration.xml',
+        'views/jobManagement.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'application': True,
 }

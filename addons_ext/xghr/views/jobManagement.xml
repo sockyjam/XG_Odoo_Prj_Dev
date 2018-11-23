@@ -1,0 +1,94 @@
+<odoo>
+  <data>
+    <!-- 人员登记 -->
+      <!--tree-->
+    <record model="ir.ui.view" id="view_xghr_job_management_tree">
+      <field name="name">view.xghr.job.management.tree</field>
+      <field name="model">job.management</field>
+      <field name="arch" type="xml">
+        <!--decoration-danger 红色  decoration-info 蓝色 decoration-muted 灰色  decoration-primary 紫色 decoration-success 绿色  decoration-warning  黄色 -->
+        <tree string="XGHrJobManagementTree" decoration-danger="state == 'notStart'" decoration-success = "state == 'end'" >
+           <field name="uuid"  />
+           <field name="work_describe" placeholder="工作描述" />
+           <field name="work_type" placeholder="工作种类" />
+           <field name="state" placeholder="状态" />
+
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_xghr_job_management_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_xghr_job_management_tree"/>
+        <field name="act_window_id" ref="action_xghr_job_management"/>
+    </record>
+
+
+
+      <!-- from  -->
+    <record model="ir.ui.view" id="view_xghr_job_management_form">
+      <field name="name">view.xghr.job.management.form</field>
+      <field name="model">job.management</field>
+      <field name="priority" eval="2"/>
+      <field name="arch" type="xml">
+        <form string="XGHrJobManagementFrom">
+           <sheet>
+                <header>
+                    <button name="button_not_start" states="notStart" string="任务开始" type="object"  class="oe_highlight" groups="xghr.group_xghr_manage"/>
+                    <button name="button_start" string="任务完成" type="object" states="start" class="oe_highlight"  groups="xghr.group_xghr_manage"/>
+                    <field name="state" widget="statusbar" statusbar_visible="notStart,start,end" readonly="1"/>
+                    <!--<button name="button_action" string="测试action" type="object" class="oe_highlight"  groups="xghr.group_xghr_manage"/>-->
+                </header>
+               <div>
+                <!--<span class="o_form_label" string="Request for Quotation " attrs="{'invisible': [('state','not in',('draft','sent'))]}"/>-->
+                        <!--<span class="o_form_label" string="Purchase Order " attrs="{'invisible': [('state','in',('draft','sent'))]}"/>-->
+                    <h1>
+                        <field name="uuid" readonly="1"/>
+                    </h1>
+               </div>
+              <group col="4">
+                    <field name="work_describe" placeholder="工作描述" />
+                    <field name="work_type" placeholder="工作种类" />
+                    <field name="state" placeholder="状态" />
+                    <field name="job_management_line"  />
+              </group>
+           </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_xghr_job_management_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_xghr_job_management_form"/>
+        <field name="act_window_id" ref="action_xghr_job_management"/>
+    </record>
+
+
+
+
+      <!-- job_management_line View-->
+     <record model="ir.ui.view" id="view_xghr_job_management_line_tree">
+      <field name="name">view.xghr.job.management.line.tree</field>
+      <field name="model">job.management.line</field>
+      <field name="arch" type="xml">
+        <tree string="XGHrJobManagementLineTree" editable="bottom">
+           <field name="name" />
+           <field name="management_line_id" invisible="1"/>
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="view_xghr_job_management_line_form">
+      <field name="name">view.xghr.job.management.line.form</field>
+      <field name="model">job.management.line</field>
+      <field name="arch" type="xml">
+        <form string="XGHrJobManagementLineForm">
+           <field name="name" />
+           <field name="management_line_id" invisible="1"/>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

@@ -1,2 +1,13 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_xghr_xghr,xghr.xghr,model_xghr_xghr,,1,0,0,0
+
+access_personnel_registration_manage,personnel.registration.manage,model_personnel_registration,group_xghr_manage,1,1,1,1
+access_personnel_registration_user,personnel.registration.user,model_personnel_registration,group_xghr_user,1,0,0,0
+
+access_personnel_group_manage,personnel.group.manage,model_personnel_group,group_xghr_manage,1,1,1,1
+access_personnel_group_user,personnel.group.user,model_personnel_group,group_xghr_user,1,0,0,0
+
+access_job_management_manage,job.management.manage,model_job_management,group_xghr_manage,1,1,1,1
+access_job_management_user,job.management.user,model_job_management,group_xghr_user,1,0,0,0
+
+access_job_management_line_manage,job.management.line.manage,model_job_management_line,group_xghr_manage,1,1,1,1
+access_job_management_line_user,job.management.line.user,model_job_management_line,group_xghr_user,1,0,0,0
