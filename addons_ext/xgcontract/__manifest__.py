@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "XGContract",
+    'name': "xgcontract",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -24,7 +24,8 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'views/menus.xml',
         'views/views.xml',
         'views/templates.xml',
     ],
@@ -32,4 +33,5 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'application': True,
 }

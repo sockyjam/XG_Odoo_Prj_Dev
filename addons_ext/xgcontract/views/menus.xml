@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+
+        <!--采购合同动作-->
+        <record id="action_contract_purchase" model="ir.actions.act_window">
+            <field name="name">采购合同</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgcontract.xgcontract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[("type", "=", True)]</field>
+            <field name="context">{'default_type': True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    无采购合同
+                </p>
+            </field>
+        </record>
+
+        <!--销售合同动作-->
+        <record id="action_contract_market" model="ir.actions.act_window">
+            <field name="name">销售合同</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgcontract.xgcontract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("type", "=", False)]</field>
+            <field name="context">{'default_type': False}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    无销售合同
+                </p>
+            </field>
+        </record>
+
+        <!--合同公司管理动作-->
+        <record id="action_contract_company" model="ir.actions.act_window">
+            <field name="name">公司管理</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">company.company</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    无公司
+                </p>
+            </field>
+        </record>
+
+        <!--主菜单-->
+        <menuitem name="合同管理" id="menu_contract_root" groups="base.group_user"/>
+
+        <!--采购-->
+        <menuitem name="采购合同" id="menu_contract_purchase" parent="menu_contract_root"
+                  action="action_contract_purchase"/>
+
+        <!--销售-->
+        <menuitem name="销售合同" id="menu_contract_market" parent="menu_contract_root"
+                  action="action_contract_market"/>
+
+        <!--合同公司管理-->
+        <menuitem name="公司管理" id="menu_contract_company" parent="menu_contract_root"
+                  action="action_contract_company"/>
+
+
+    </data>
+</odoo>
