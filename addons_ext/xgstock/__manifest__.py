@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "xgstock_base",
+    'name': "XGStock",
 
     'summary': """
         XGStock function.
@@ -10,7 +10,7 @@
         XG Stock module 
     """,
 
-    'author': "Liangli Xingang",
+    'author': "LLXG",
     'website': "http://www.scllxg.com",
 
     # Categories can be used to filter modules in modules listing
@@ -32,4 +32,6 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'installable': True,
+    'application': True,
 }
