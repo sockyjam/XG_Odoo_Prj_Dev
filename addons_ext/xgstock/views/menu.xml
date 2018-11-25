@@ -1,0 +1,69 @@
+<odoo>
+  <data>
+
+
+        <menuitem name="XG仓储管理"
+            id="menu_xgstock_root" groups="base.group_user"/>
+
+
+        <record id="action_xgstock_base_warehouse" model="ir.actions.act_window">
+            <field name="name">仓库设置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgstock.warehouse</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                记录为空！还没有添加仓库
+                </p><p>
+                请新建仓库进行设置
+                </p>
+            </field>
+        </record>
+
+      <menuitem name="预报" id="menu_xgstock_pretreatment" parent="menu_xgstock_root" sequence="1"/>
+      <menuitem name="入库申请" id="menu_xgin_prdapply" parent="menu_xgstock_pretreatment" action="action_xgstock_base_warehouse"/>
+      <menuitem name="入库预报" id="menu_xgin_prdorder" parent="menu_xgstock_pretreatment" action="action_xgstock_base_warehouse"/>
+      <menuitem name="出库申请" id="menu_xgout_prdapply" parent="menu_xgstock_pretreatment" action="action_xgstock_base_warehouse"/>
+      <menuitem name="出库预报" id="menu_xgout_prdorder" parent="menu_xgstock_pretreatment" action="action_xgstock_base_warehouse"/>
+
+
+
+      <menuitem name="入库操作" id="menu_xgstorage_inprocess" parent="menu_xgstock_root" sequence="2"/>
+      <menuitem name="入库单" id="menu_xgstorage_inorder" parent="menu_xgstorage_inprocess" action="action_xgstock_base_warehouse"/>
+
+
+
+      <menuitem name="出库操作" id="menu_xgstorage_outprocess" parent="menu_xgstock_root" sequence="3"/>
+      <menuitem name="出库单" id="menu_xgstorage_outorder" parent="menu_xgstorage_outprocess" action="action_xgstock_base_warehouse"/>
+
+
+
+      <menuitem name="库内操作" id="menu_xgstorage_interprocess" parent="menu_xgstock_root" sequence="4"/>
+      <menuitem name="移库" id="menu_xgstorage_picking" parent="menu_xgstorage_interprocess" action="action_xgstock_base_warehouse"/>
+      <menuitem name="盘库" id="menu_xgstorage_phyinventory" parent="menu_xgstorage_interprocess" action="action_xgstock_base_warehouse"/>
+      <menuitem name="报损" id="menu_xgstorage_damage" parent="menu_xgstorage_interprocess" action="action_xgstock_base_warehouse"/>
+      <menuitem name="物权转移" id="menu_xgstorage_changeowner" parent="menu_xgstorage_interprocess" action="action_xgstock_base_warehouse"/>
+
+
+
+      <menuitem name="仓储报表" id="menu_xgstock_report" parent="menu_xgstock_root" sequence="8"/>
+      <menuitem name="货品清单" id="menu_xgstock_report_prdlist" parent="menu_xgstock_report" action="action_xgstock_base_warehouse"/>
+      <menuitem name="进出统计" id="menu_xgstock_report_inoutstatistics" parent="menu_xgstock_report" action="action_xgstock_base_warehouse"/>
+
+
+
+
+
+      <menuitem name="基础资料设置" id="menu_xgstock_base_setting" parent="menu_xgstock_root" sequence="10"/>
+      <menuitem name="设置仓库" id="menu_xgstock_base_warehouse" parent="menu_xgstock_base_setting" action="action_xgstock_base_warehouse"/>
+      <menuitem name="设置库位" id="menu_xgstock_base_position" parent="menu_xgstock_base_setting" action="action_xgstock_base_warehouse"/>
+      <menuitem name="设置商品" id="menu_xgstock_base_product" parent="menu_xgstock_base_setting" action="action_xgstock_base_warehouse"/>
+      <menuitem name="设置商品类别" id="menu_xgstock_base_prdclass" parent="menu_xgstock_base_setting" action="action_xgstock_base_warehouse"/>
+
+
+
+
+
+  </data>
+</odoo>

@@ -24,8 +24,8 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
         'security/account_security.xml',
+        'security/ir.model.access.csv',
         'views/menus.xml',
         'views/personnelRegistration.xml',
         'views/jobManagement.xml',
@@ -34,5 +34,6 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'installable': True,
     'application': True,
 }
