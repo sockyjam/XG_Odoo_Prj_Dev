@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+
+
+
+    <menuitem name="XG劳务管理"
+        id="menu_xglabor_root" groups="base.group_user"/>
+
+
+
+  </data>
+</odoo>
