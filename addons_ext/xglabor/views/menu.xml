@@ -7,6 +7,23 @@
         id="menu_xglabor_root" groups="base.group_user"/>
 
 
+    <record id="action_xglabor_labor" model="ir.actions.act_window">
+        <field name="name">劳工信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">xglabor.labor</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            记录为空！
+          </p><p>
+            请新建劳工信息
+          </p>
+        </field>
+    </record>
+
+    <menuitem name="劳务管理" id="menu_xglabor_management" parent="menu_xglabor_root" />
+    <menuitem name="人员" id="menu_xglabor_labor" parent="menu_xglabor_management" action="action_xglabor_labor"/>
 
   </data>
 </odoo>

@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_xglabor_xglabor,xglabor.xglabor,model_xglabor_xglabor,,1,0,0,0
+access_xglabor_labor,xglabor.labor,model_xglabor_labor,,1,1,1,1
