@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_xglabor_labor,xglabor.labor,model_xglabor_labor,,1,1,1,1
+access_xglabor_work_order,xglabor.workorder,model_xglabor_workorder,,1,1,1,1
+access_xglabor_labor_type,xglabor.type,model_xglabor_type,,1,1,1,1
+access_xglabor_job,xglabor.job,model_xglabor_job,,1,1,1,1

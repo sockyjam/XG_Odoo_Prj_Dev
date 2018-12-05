@@ -1,5 +1,27 @@
 <odoo>
     <data>
+
+           <!--<record id="data_xglabor_type_0" model="xglabor.type">-->
+             <!--<field name="name">name</field>-->
+             <!--<field name="value">丝索工</field>-->
+           <!--</record>-->
+
+           <!--<record id="data_xglabor_type_1" model="xglabor.type">-->
+             <!--<field name="name">name</field>-->
+             <!--<field name="value">搬运工</field>-->
+           <!--</record>-->
+
+           <!--<record id="data_xglabor_type_2" model="xglabor.type">-->
+             <!--<field name="name">name</field>-->
+             <!--<field name="value">打磅工</field>-->
+           <!--</record>-->
+
+           <!--<record id="data_xglabor_type_3" model="xglabor.type">-->
+             <!--<field name="name">name</field>-->
+             <!--<field name="value">安全员</field>-->
+           <!--</record>-->
+
+
         <!--  -->
         <!--   <record id="object0" model="xglabor.xglabor"> -->
         <!--     <field name="name">Object 0</field> -->

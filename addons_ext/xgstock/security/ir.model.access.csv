@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_xgstock_base_xgstock_base,xgstock_base.xgstock_base,model_xgstock_warehouse,,1,1,1,1
+access_xgstock_warehouse,xgstock.warehouse,model_xgstock_warehouse,,1,1,1,1
+access_xgstock_position,xgstock.position,model_xgstock_position,,1,1,1,1
+access_xgstock_product,xgstock.product,model_xgstock_product,,1,1,1,1

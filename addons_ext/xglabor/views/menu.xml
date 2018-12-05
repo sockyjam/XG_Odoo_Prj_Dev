@@ -22,8 +22,19 @@
         </field>
     </record>
 
-    <menuitem name="劳务管理" id="menu_xglabor_management" parent="menu_xglabor_root" />
-    <menuitem name="人员" id="menu_xglabor_labor" parent="menu_xglabor_management" action="action_xglabor_labor"/>
+    <!--<menuitem name="劳务管理" id="menu_xglabor_management" parent="menu_xglabor_root" />-->
+    <menuitem name="人员" id="menu_xglabor_labor" parent="menu_xglabor_root" action="action_xglabor_labor"/>
+
+
+      <record id="action_xglabor_work_order" model="ir.actions.act_window">
+        <field name="name">工单信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">xglabor.workorder</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="工单" id="menu_xglabor_work_order" parent="menu_xglabor_root" action="action_xglabor_work_order"/>
 
   </data>
 </odoo>

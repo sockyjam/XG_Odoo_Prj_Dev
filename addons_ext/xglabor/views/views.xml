@@ -1,60 +1,130 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="xglabor.list">
-      <field name="name">xglabor list</field>
-      <field name="model">xglabor.xglabor</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="xglabor.action_window">
-      <field name="name">xglabor window</field>
-      <field name="res_model">xglabor.xglabor</field>
-      <field name="view_mode">tree,form</field>
+    <!--劳务人员列表-->
+    <record id="view_xglabor_labor_tree" model="ir.ui.view">
+        <field name="name">view.xglabor.labor.tree</field>
+        <field name="model">xglabor.labor</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="XGLaborLaborTree">
+                <field name="number"  />
+                <field name="name"  />
+                <field name="sex"  />
+                <field name="telephone"  />
+                <field name="labor_type"  />
+            </tree>
+        </field>
     </record>
-    -->
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="xglabor.action_server">
-      <field name="name">xglabor server</field>
-      <field name="model_id" ref="model_xglabor_xglabor"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
+    <!--劳务人员表单-->
+    <record id="view_xglabor_labor_form" model="ir.ui.view">
+        <field name="name">view.xglabor.labor.form</field>
+        <field name="model">xglabor.labor</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <form string="XGLaborLaborForm">
+                <sheet>
+                    <group col="4">
+                        <field name="number"  />
+                        <field name="name"  />
+                        <field name="birthday" />
+                        <field name="native_place_province" placeholder="省份" />
+                        <field name="native_place_city"  placeholder="城市"/>
+                        <field name="sex" />
+                        <field name="telephone" />
+                        <field name="idcard" />
+                        <field name="has_sick_history" />
+                        <field name="sick_history" />
+                        <field name="emergency_contact_person" />
+                        <field name="emergency_contact_telephone"  />
+                        <field name="home_address"  />
+                        <field name="marital_status"  />
+                        <field name="children_num"  />
+                        <field name="labor_type"  />
+                        <field name="pay_type"  />
+                        <field name="grade"  />
+                        <field name="is_direct"  />
+                        <field name="direct_company"  />
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
-    -->
 
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="xglabor" id="xglabor.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="xglabor.menu_1" parent="xglabor.menu_root"/>
-    <menuitem name="Menu 2" id="xglabor.menu_2" parent="xglabor.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="xglabor.menu_1_list" parent="xglabor.menu_1"
-              action="xglabor.action_window"/>
-    <menuitem name="Server to list" id="xglabor" parent="xglabor.menu_2"
-              action="xglabor.action_server"/>
-    -->
+    <!--工单列表-->
+    <record id="view_xglabor_work_order_tree" model="ir.ui.view">
+        <field name="name">view.xglabor.work.order.tree</field>
+        <field name="model">xglabor.workorder</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="XGLaborWorkOrderTree">
+                <field name="number"  />
+                <field name="work_place"  />
+                <field name="company"  />
+                <field name="start_time"  />
+                <field name="end_time"  />
+            </tree>
+        </field>
+    </record>
+
+    <!--工单表单-->
+    <record id="view_xglabor_work_order_form" model="ir.ui.view">
+        <field name="name">view.xglabor.work.order.form</field>
+        <field name="model">xglabor.workorder</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <form string="XGLaborWorkOrderForm">
+                <sheet>
+                    <group col="4">
+                        <field name="number"  />
+                        <field name="company"  />
+                        <field name="start_time" />
+                        <field name="end_time" />
+                        <field name="work_place"  />
+                        <field name="confirm_person" readonly="True"/>
+                    </group>
+                    <field name="jobs" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Job任务列表-->
+    <record id="view_xglabor_job_tree" model="ir.ui.view">
+        <field name="name">view.xglabor.job.tree</field>
+        <field name="model">xglabor.job</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="XGLaborJobTree">
+                <field name="person"  />
+                <field name="type"  />
+                <field name="pay_type"  />
+            </tree>
+        </field>
+    </record>
+
+    <!--Job任务表单-->
+    <record id="view_xglabor_job_form" model="ir.ui.view">
+        <field name="name">view.xglabor.job.form</field>
+        <field name="model">xglabor.job</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <form string="XGLaborJobForm">
+                <sheet>
+                    <group col="4">
+                        <field name="person"  />
+                        <field name="type"  />
+                        <field name="pay_type" />
+                        <field name="state" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
   </data>
 </odoo>
