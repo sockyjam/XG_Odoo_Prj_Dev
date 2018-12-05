@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="xgdevice.list">
+      <field name="name">xgdevice list</field>
+      <field name="model">xgdevice.xgdevice</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="xgdevice.action_window">
+      <field name="name">xgdevice window</field>
+      <field name="res_model">xgdevice.xgdevice</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="xgdevice.action_server">
+      <field name="name">xgdevice server</field>
+      <field name="model_id" ref="model_xgdevice_xgdevice"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="xgdevice" id="xgdevice.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="xgdevice.menu_1" parent="xgdevice.menu_root"/>
+    <menuitem name="Menu 2" id="xgdevice.menu_2" parent="xgdevice.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="xgdevice.menu_1_list" parent="xgdevice.menu_1"
+              action="xgdevice.action_window"/>
+    <menuitem name="Server to list" id="xgdevice" parent="xgdevice.menu_2"
+              action="xgdevice.action_server"/>
+    -->
+  </data>
+</odoo>
