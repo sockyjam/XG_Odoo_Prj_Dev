@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_xgproduct_product,xgproduct.product,model_xgproduct_product,group_xgproduct_manage,1,1,1,1
+
+access_xgproduct_type,xgproduct.type,model_xgproduct_type,group_xgproduct_manage,1,1,1,1
+
+

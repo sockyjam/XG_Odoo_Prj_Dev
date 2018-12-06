@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+
+
+        <menuitem name="XG 产品" id="xgproduct_menu_root"/>
+
+
+        <!-- 产品-->
+        <record model="ir.actions.act_window" id="action_xgproduct_product">
+          <field name="name">产品</field>
+          <field name="res_model">xgproduct.product</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加产品
+            </p>
+            <p>
+            请新建产品
+            </p>
+          </field>
+        </record>
+
+
+        <menuitem name="产品" id="xgproduct_product_menu" parent="xgproduct_menu_root"
+                  action="action_xgproduct_product" />
+
+
+
+        <!-- 产品分组 -->
+        <record model="ir.actions.act_window" id="action_xgproduct_product_type">
+          <field name="name">产品类型</field>
+          <field name="res_model">xgproduct.type</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            记录为空！还没有添加产品类型
+            </p>
+            <p>
+            请新建产品类型
+            </p>
+          </field>
+        </record>
+
+
+        <menuitem name="产品类型" id="xgproduct_product_type_menu" parent="xgproduct_menu_root"
+                  action="action_xgproduct_product_type" />
+
+    </data>
+</odoo>
