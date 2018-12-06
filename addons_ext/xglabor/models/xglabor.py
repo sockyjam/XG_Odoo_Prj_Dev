@@ -5,7 +5,7 @@ from odoo import models, fields, api
 class Labor(models.Model):
     _name = 'xglabor.labor'
     _description = 'XGLabor 劳务人员信息，包括姓名、身份证、工种等.'
-    _rec_name = 'number'
+    _rec_name = 'name'
 
     number = fields.Char(index=True, string='劳务编号')
     name = fields.Char(string='姓名')
