@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+        <!-- 入库预报 tree-->
+        <record model="ir.ui.view" id="view_xgstock_xgout_prd_tree">
+            <field name="name">view.xgstock.xgout.prd.tree</field>
+            <field name="model">xgstock.xgout_prd</field>
+            <field name="arch" type="xml">
+                <!--decoration-danger 红色  decoration-info 蓝色 decoration-muted 灰色  decoration-primary 紫色 decoration-success 绿色  decoration-warning  黄色 -->
+                <tree string="XGStockXGOutPRDTree" decoration-danger="state == 'pending'">
+                    <field name="PRD_uuid"/>
+                    <field name="supplier"/>
+                    <field name="order_making_time"/>
+                    <field name="expected_warehousing_time"/>
+                    <field name="PRD_create_user"/>
+                    <field name="state"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_xgstock_xgout_prd_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_xgstock_xgout_prd_tree"/>
+            <field name="act_window_id" ref="action_xgstock_xgout_prd"/>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_xgstock_xgout_prd_form">
+            <field name="name">view.xgstock.xgout.prd.form</field>
+            <field name="model">xgstock.xgout_prd</field>
+            <field name="arch" type="xml">
+                <!--decoration-danger 红色  decoration-info 蓝色 decoration-muted 灰色  decoration-primary 紫色 decoration-success 绿色  decoration-warning  黄色 -->
+                <form string="XGStockXGOutPRDForm">
+                    <sheet>
+                        <header>
+                            <button name="button_pending" states="pending" string="预报审批通过" type="object"
+                                    class="oe_highlight" groups="xgstock.group_xgstock_accepting"/>
+
+                            <field name="state" widget="statusbar" statusbar_visible="pending,adopt" readonly="1"/>
+                        </header>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="PRD_uuid" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group col="4">
+                            <field name="supplier"/>
+                            <field name="expected_warehousing_time"/>
+
+
+                        </group>
+                        <group>
+                            <field name="xgproduct_order_lines"/>
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_xgstock_xgout_prd_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_xgstock_xgout_prd_form"/>
+            <field name="act_window_id" ref="action_xgstock_xgout_prd"/>
+
+        </record>
+        <!-- 中间关联视图 order.line -->
+
+        <record model="ir.ui.view" id="view_xgstock_xgout_prd_order_line_tree">
+            <field name="name">view.xgstock.xgout.prd.order.line.tree</field>
+            <field name="model">xgstock.xgout.prd.order.line</field>
+            <field name="arch" type="xml">
+                <tree string="XGstockXGOutPRDOrderLineTree" editable="bottom">
+                    <field name="product_detailed_id"/>
+                    <field name="product_detailed_num"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

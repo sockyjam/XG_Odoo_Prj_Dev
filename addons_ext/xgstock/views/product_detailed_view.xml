@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_product_detailed_tree">
+            <field name="name">view.product.detailed.tree</field>
+            <field name="model">product.detailed</field>
+            <field name="arch" type="xml">
+                <!--decoration-danger 红色  decoration-info 蓝色 decoration-muted 灰色  decoration-primary 紫色 decoration-success 绿色  decoration-warning  黄色 -->
+                <tree string="XGProductDetailedTree">
+                    <field name="product_name"/>
+                    <field name="product_num"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_product_detailed_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_product_detailed_tree"/>
+            <field name="act_window_id" ref="action_product_detailed"/>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_detailed_form">
+            <field name="name">view.product.detailed.form</field>
+            <field name="model">product.detailed</field>
+            <field name="arch" type="xml">
+                <!--decoration-danger 红色  decoration-info 蓝色 decoration-muted 灰色  decoration-primary 紫色 decoration-success 绿色  decoration-warning  黄色 -->
+                <form string="XGProductDetailedForm">
+                    <sheet>
+                        <group col="4">
+                            <field name="product_name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_detailed_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_detailed_form"/>
+            <field name="act_window_id" ref="action_product_detailed"/>
+        </record>
+    </data>
+</odoo>

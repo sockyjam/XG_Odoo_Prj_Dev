@@ -5,6 +5,7 @@ from odoo import models, fields, api
 class Labor(models.Model):
     _name = 'xglabor.labor'
     _description = 'XGLabor 劳务人员信息，包括姓名、身份证、工种等.'
+    _rec_name = 'number'
 
     number = fields.Char(index=True, string='劳务编号')
     name = fields.Char(string='姓名')
@@ -40,6 +41,7 @@ class LaborType(models.Model):
 class WorkOrder(models.Model):
     _name = 'xglabor.workorder'
     _description = '劳务工单，记录每次工作内容，每隔工单可能包含多个job'
+    _rec_name = 'number'
 
     number = fields.Char(index=True, string='工单编号')
     # persons = fields.One2many('xglabor.labor', 'work_order', string='劳工人员列表')

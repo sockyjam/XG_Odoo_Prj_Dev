@@ -20,14 +20,24 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'xgproduct', 'xgcrm', 'xghr','purchase'],
 
     # always loaded
     'data': [
+        'security/account_security.xml',
         'security/ir.model.access.csv',
+
         'views/menu.xml',
         'views/views.xml',
         'views/templates.xml',
+        'views/xgin_prd_view.xml',
+        'views/xgout_prd_view.xml',
+        'views/xgin_apply_view.xml',
+        'views/xgout_apply_view.xml',
+        'views/product_detailed_view.xml',
+        'views/xgstock_picking_view.xml',
+        'views/xgstock_odo_view.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

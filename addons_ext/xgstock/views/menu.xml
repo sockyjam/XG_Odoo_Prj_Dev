@@ -1,9 +1,9 @@
 <odoo>
-  <data>
+    <data>
 
 
         <menuitem name="XG仓储管理"
-            id="menu_xgstock_root" groups="base.group_user"/>
+                  id="menu_xgstock_root"/>
 
 
         <record id="action_xgstock_base_warehouse" model="ir.actions.act_window">
@@ -14,56 +14,197 @@
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
-                记录为空！还没有添加仓库
-                </p><p>
-                请新建仓库进行设置
+                    记录为空！还没有添加仓库
+                </p>
+                <p>
+                    请新建仓库进行设置
+                </p>
+            </field>
+        </record>
+        <!--("state", "=", "start")-->
+        <record id="action_xgstock_xgin_prd" model="ir.actions.act_window">
+            <field name="name">入库预报</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgstock.xgin_prd</field>
+            <field name="domain">[("state", "=", "pending")]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    记录为空！还没有添加仓库
+                </p>
+                <p>
+                    请新建仓库进行设置
                 </p>
             </field>
         </record>
 
-      <menuitem name="预报" id="menu_xgstock_pretreatment" parent="menu_xgstock_root" sequence="1"/>
-      <menuitem name="入库申请" id="menu_xgin_prdapply" parent="menu_xgstock_pretreatment" action="action_xgstock_base_warehouse"/>
-      <menuitem name="入库预报" id="menu_xgin_prdorder" parent="menu_xgstock_pretreatment" action="action_xgstock_base_warehouse"/>
-      <menuitem name="出库申请" id="menu_xgout_prdapply" parent="menu_xgstock_pretreatment" action="action_xgstock_base_warehouse"/>
-      <menuitem name="出库预报" id="menu_xgout_prdorder" parent="menu_xgstock_pretreatment" action="action_xgstock_base_warehouse"/>
+
+        <record id="action_xgstock_xgin_apply" model="ir.actions.act_window">
+            <field name="name">入库申请</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgstock.xgin_prd</field>
+            <field name="domain">['|','|',("state", "=", "adopt"),("state", "=", "warehousing"),("state", "=", "end")]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    记录为空！还没有添加仓库
+                </p>
+                <p>
+                    请新建仓库进行设置
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="预报" id="menu_xgstock_pretreatment" parent="menu_xgstock_root" sequence="1"/>
+
+
+        <menuitem name="入库预报" id="menu_xgin_prdorder" parent="menu_xgstock_pretreatment" sequence="2"
+                  action="action_xgstock_xgin_prd"/>
+
+        <menuitem name="入库申请" id="menu_xgin_prdapply" parent="menu_xgstock_pretreatment" sequence="1"
+                  action="action_xgstock_xgin_apply" groups="group_xgstock_merchant"/>
+
+
+         <record id="action_xgstock_xgout_prd" model="ir.actions.act_window">
+            <field name="name">出库预报</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgstock.xgout_prd</field>
+            <field name="domain">[("state", "=", "pending")]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    记录为空！还没有添加仓库
+                </p>
+                <p>
+                    请新建仓库进行设置
+                </p>
+            </field>
+        </record>
+         <record id="action_xgstock_xgout_apply" model="ir.actions.act_window">
+            <field name="name">出库申请</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgstock.xgout_prd</field>
+            <field name="domain">['|','|',("state", "=", "adopt"),("state", "=", "warehousing"),("state", "=", "end")]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    记录为空！还没有添加仓库
+                </p>
+                <p>
+                    请新建仓库进行设置
+                </p>
+            </field>
+        </record>
+        <menuitem name="出库申请" id="menu_xgout_prdapply" parent="menu_xgstock_pretreatment"
+                  action="action_xgstock_xgout_apply"  groups="group_xgstock_merchant"/>
+        <menuitem name="出库预报" id="menu_xgout_prdorder_merchant" parent="menu_xgstock_pretreatment"
+                  action="action_xgstock_xgout_prd" groups="group_xgstock_merchant,group_xgstock_accepting"/>
 
 
 
-      <menuitem name="入库操作" id="menu_xgstorage_inprocess" parent="menu_xgstock_root" sequence="2"/>
-      <menuitem name="入库单" id="menu_xgstorage_inorder" parent="menu_xgstorage_inprocess" action="action_xgstock_base_warehouse"/>
+        <menuitem name="入库操作" id="menu_xgstorage_inprocess" parent="menu_xgstock_root" sequence="2" />
+
+        <record id="action_xgstock_picking" model="ir.actions.act_window">
+            <field name="name">入库单</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgstock.picking</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    记录为空！还没有添加仓库
+                </p>
+                <p>
+                    请新建仓库进行设置
+                </p>
+            </field>
+        </record>
+        <menuitem name="入库单" id="menu_xgstorage_inorder" parent="menu_xgstorage_inprocess"
+                  action="action_xgstock_picking"/>
 
 
-
-      <menuitem name="出库操作" id="menu_xgstorage_outprocess" parent="menu_xgstock_root" sequence="3"/>
-      <menuitem name="出库单" id="menu_xgstorage_outorder" parent="menu_xgstorage_outprocess" action="action_xgstock_base_warehouse"/>
-
-
-
-      <menuitem name="库内操作" id="menu_xgstorage_interprocess" parent="menu_xgstock_root" sequence="4"/>
-      <menuitem name="移库" id="menu_xgstorage_picking" parent="menu_xgstorage_interprocess" action="action_xgstock_base_warehouse"/>
-      <menuitem name="盘库" id="menu_xgstorage_phyinventory" parent="menu_xgstorage_interprocess" action="action_xgstock_base_warehouse"/>
-      <menuitem name="报损" id="menu_xgstorage_damage" parent="menu_xgstorage_interprocess" action="action_xgstock_base_warehouse"/>
-      <menuitem name="物权转移" id="menu_xgstorage_changeowner" parent="menu_xgstorage_interprocess" action="action_xgstock_base_warehouse"/>
-
-
-
-      <menuitem name="仓储报表" id="menu_xgstock_report" parent="menu_xgstock_root" sequence="8"/>
-      <menuitem name="货品清单" id="menu_xgstock_report_prdlist" parent="menu_xgstock_report" action="action_xgstock_base_warehouse"/>
-      <menuitem name="进出统计" id="menu_xgstock_report_inoutstatistics" parent="menu_xgstock_report" action="action_xgstock_base_warehouse"/>
+        <menuitem name="出库操作" id="menu_xgstorage_outprocess" parent="menu_xgstock_root" sequence="3"/>
+        <record id="action_xgstock_odo" model="ir.actions.act_window">
+            <field name="name">出库单</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgstock.xgout_prd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    记录为空！
+                </p>
+            </field>
+        </record>
+        <menuitem name="出库单" id="menu_xgstorage_outorder" parent="menu_xgstorage_outprocess"
+                  action="action_xgstock_odo"/>
 
 
+        <!--<menuitem name="库内操作" id="menu_xgstorage_interprocess" parent="menu_xgstock_root" sequence="4"/>-->
+        <!--<menuitem name="移库" id="menu_xgstorage_picking" parent="menu_xgstorage_interprocess"-->
+                  <!--action="action_xgstock_base_warehouse"/>-->
+        <!--<menuitem name="盘库" id="menu_xgstorage_phyinventory" parent="menu_xgstorage_interprocess"-->
+                  <!--action="action_xgstock_base_warehouse"/>-->
+        <!--<menuitem name="报损" id="menu_xgstorage_damage" parent="menu_xgstorage_interprocess"-->
+                  <!--action="action_xgstock_base_warehouse"/>-->
+        <!--<menuitem name="物权转移" id="menu_xgstorage_changeowner" parent="menu_xgstorage_interprocess"-->
+                  <!--action="action_xgstock_base_warehouse"/>-->
 
 
+        <record id="action_product_detailed" model="ir.actions.act_window">
+            <field name="name">商品清单</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.detailed</field>
+            <field name="domain">[("state", "=", "true")]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    记录为空！还没有添加商品
+                </p>
+                <p>
+                    请新建商品进行设置
+                </p>
+            </field>
+        </record>
 
-      <menuitem name="基础资料设置" id="menu_xgstock_base_setting" parent="menu_xgstock_root" sequence="10"/>
-      <menuitem name="设置仓库" id="menu_xgstock_base_warehouse" parent="menu_xgstock_base_setting" action="action_xgstock_base_warehouse"/>
-      <menuitem name="设置库位" id="menu_xgstock_base_position" parent="menu_xgstock_base_setting" action="action_xgstock_base_warehouse"/>
-      <menuitem name="设置商品" id="menu_xgstock_base_product" parent="menu_xgstock_base_setting" action="action_xgstock_base_warehouse"/>
-      <menuitem name="设置商品类别" id="menu_xgstock_base_prdclass" parent="menu_xgstock_base_setting" action="action_xgstock_base_warehouse"/>
+        <menuitem name="仓储报表" id="menu_xgstock_report" parent="menu_xgstock_root" sequence="8"/>
+        <menuitem name="货品清单" id="menu_xgstock_report_prdlist" parent="menu_xgstock_report"
+                  action="action_product_detailed"/>
+        <!--<menuitem name="进出统计" id="menu_xgstock_report_inoutstatistics" parent="menu_xgstock_report"-->
+                  <!--action="action_xgstock_base_warehouse"/>-->
 
 
+        <menuitem name="基础资料设置" id="menu_xgstock_base_setting" parent="menu_xgstock_root" sequence="10"/>
+        <menuitem name="设置仓库" id="menu_xgstock_base_warehouse" parent="menu_xgstock_base_setting"
+                  action="action_xgstock_base_warehouse"/>
+        <record id="action_xgstock_position" model="ir.actions.act_window">
+            <field name="name">库位设置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">xgstock.position</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    记录为空！还没有添加商品
+                </p>
+                <p>
+                    请新建商品进行设置
+                </p>
+            </field>
+        </record>
+        <menuitem name="设置库位" id="menu_xgstock_base_position" parent="menu_xgstock_base_setting"
+                  action="action_xgstock_position"/>
+        <!--<menuitem name="设置商品" id="menu_xgstock_base_product" parent="menu_xgstock_base_setting"-->
+                  <!--action="action_xgstock_base_warehouse"/>-->
+        <!--<menuitem name="设置商品类别" id="menu_xgstock_base_prdclass" parent="menu_xgstock_base_setting"-->
+                  <!--action="action_xgstock_base_warehouse"/>-->
 
 
-
-  </data>
+    </data>
 </odoo>
