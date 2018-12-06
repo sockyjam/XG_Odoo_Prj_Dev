@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'xgproduct', 'xgcrm', 'xghr','purchase'],
+    'depends': ['base', 'xgcrm'],
 
     # always loaded
     'data': [
@@ -28,7 +28,6 @@
         'security/ir.model.access.csv',
 
         'views/menu.xml',
-        'views/views.xml',
         'views/templates.xml',
         'views/xgin_prd_view.xml',
         'views/xgout_prd_view.xml',
