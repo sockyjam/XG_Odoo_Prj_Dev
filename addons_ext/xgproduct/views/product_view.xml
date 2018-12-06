@@ -1,0 +1,54 @@
+<odoo>
+  <data>
+      <!-- tree -->
+    <record model="ir.ui.view" id="veiw_xgproduct_product_product_tree">
+      <field name="name">view.xgproduct.product.tree</field>
+      <field name="model">xgproduct.product</field>
+        <field name="priority" eval="1"/>
+      <field name="arch" type="xml">
+        <tree string="XGProductProductTree">
+            <field name="product_name"/>
+            <field name="sale_pirce"/>
+            <field name="purchase_pirce"/>
+            <field name="product_type"/>
+            <field name="create_time"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_xgproduct_product_product_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="veiw_xgproduct_product_product_tree"/>
+        <field name="act_window_id" ref="action_xgproduct_product"/>
+    </record>
+
+
+      <!-- from  -->
+    <record model="ir.ui.view" id="veiw_xgproduct_product_product_form">
+      <field name="name">view.xgproduct.product.form</field>
+      <field name="model">xgproduct.product</field>
+      <field name="priority" eval="2"/>
+      <field name="arch" type="xml">
+        <form string="XGProductProductForm">
+            <sheet>
+              <group col="4">
+                <field name="product_name"/>
+                <field name="sale_pirce"/>
+                <field name="purchase_pirce"/>
+                <field name="product_type"/>
+              </group>
+           </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_xgproduct_product_product_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="veiw_xgproduct_product_product_form"/>
+        <field name="act_window_id" ref="action_xgproduct_product"/>
+    </record>
+
+  </data>
+</odoo>

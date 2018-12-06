@@ -1,0 +1,26 @@
+
+<odoo>
+    <data >
+        <!-- 创建应用  -->
+        <record model="ir.module.category" id="module_xgproduct_app">
+            <field name="name">XGPRODUCT</field>
+            <field name="sequence">204</field>
+        </record>
+            <!-- 创建群组 需要在 应用程访问中 出现 管理员模块需要 隐含 用户组-->
+
+       <record id="group_xgproduct_user" model="res.groups">
+            <field name="name">用户</field>
+            <field name="category_id" ref="module_xgproduct_app"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+       </record>
+       <record id="group_xgproduct_manage" model="res.groups">
+            <field name="name">管理员</field>
+            <field name="category_id" ref="module_xgproduct_app"/>
+            <field name="implied_ids" eval="[(4, ref('group_xgproduct_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+      <!-- tree -->
+    <record model="ir.ui.view" id="veiw_xgproduct_product_type_tree">
+      <field name="name">view.xgproduct.type.tree</field>
+      <field name="model">xgproduct.type</field>
+        <field name="priority" eval="1"/>
+      <field name="arch" type="xml">
+        <tree string="XGProductProductTypeTree">
+            <field name="product_type_name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_xgproduct_product_type_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="veiw_xgproduct_product_type_tree"/>
+        <field name="act_window_id" ref="action_xgproduct_product_type"/>
+    </record>
+
+
+      <!-- from  -->
+    <record model="ir.ui.view" id="veiw_xgproduct_product_type_form">
+      <field name="name">view.xgproduct.type.form</field>
+      <field name="model">xgproduct.type</field>
+      <field name="priority" eval="2"/>
+      <field name="arch" type="xml">
+        <form string="XGProductProductTypeForm">
+            <sheet>
+              <group col="4">
+                <field name="product_type_name"/>
+              </group>
+           </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_xgproduct_product_type_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="veiw_xgproduct_product_type_form"/>
+        <field name="act_window_id" ref="action_xgproduct_product_type"/>
+    </record>
+
+  </data>
+</odoo>
