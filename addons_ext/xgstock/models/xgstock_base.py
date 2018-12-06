@@ -43,7 +43,7 @@ class Position(models.Model):
         ('other', "其他"),
     ], string='库位性质')
     rent_company = fields.Many2one('xgcrm.company', string='出租从属客户公司')
-
+    xgstock_position_ids = fields.One2many('xgstock.picking','xgstock_position_id')
 
 class Product(models.Model):
     _name = 'xgstock.product'
