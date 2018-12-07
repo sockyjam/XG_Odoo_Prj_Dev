@@ -25,8 +25,11 @@
         <field name="arch" type="xml">
             <form string="XGLaborLaborForm">
                 <sheet>
+                        <h1>
+                            <field name="number" readonly="1"/>
+                        </h1>
+                        <p></p>
                     <group col="4">
-                        <field name="number"  />
                         <field name="name"  />
                         <field name="birthday" />
                         <field name="native_place_province" placeholder="省份" />
@@ -46,6 +49,13 @@
                         <field name="grade"  />
                         <field name="is_direct"  />
                         <field name="direct_company"  />
+                    </group>
+                </sheet>
+                <sheet>
+                    <group col="4">
+                        <field name="idcard_front" widget='image' class="oe_avatar"/>
+                        <field name="idcard_reverse" widget='image' class="oe_avatar" />
+                        <field name="head_pic" widget='image' class="oe_avatar" />
                     </group>
                 </sheet>
             </form>

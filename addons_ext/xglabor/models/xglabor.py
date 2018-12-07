@@ -7,7 +7,7 @@ class Labor(models.Model):
     _description = 'XGLabor 劳务人员信息，包括姓名、身份证、工种等.'
     _rec_name = 'name'
 
-    number = fields.Char(index=True, string='劳务编号')
+    number = fields.Char(index=True, string='劳务编号', copy=False, readonly=True, default='New')
     name = fields.Char(string='姓名')
 
     birthday = fields.Date(string='出生日期')
@@ -29,6 +29,15 @@ class Labor(models.Model):
     is_direct = fields.Boolean(string='是否定向工?')
     direct_company = fields.Many2one('xgcrm.company', string='定向公司')
     # work_order = fields.Many2one('xglabor.workorder', string='劳动工单')
+    idcard_front = fields.Binary(string="身份证正面照")
+    idcard_reverse = fields.Binary(string="身份证反面照")
+    head_pic = fields.Binary(string="头像照片")
+
+    @api.model
+    def create(self, vals):
+        if vals.get('number', 'New') == 'New':
+            vals['number'] = self.env['ir.sequence'].next_by_code('xglabor.labor') or '/'
+        return super(Labor, self).create(vals)
 
 
 class LaborType(models.Model):
