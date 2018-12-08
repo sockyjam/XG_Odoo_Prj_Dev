@@ -36,7 +36,7 @@ class Labor(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('number', 'New') == 'New':
-            vals['number'] = self.env['ir.sequence'].next_by_code('xglabor.labor') or '/'
+            vals['number'] = self.env['ir.sequence'].next_by_code('xglabor.labor.number') or '/'
         return super(Labor, self).create(vals)
 
 
@@ -52,7 +52,7 @@ class WorkOrder(models.Model):
     _description = '劳务工单，记录每次工作内容，每隔工单可能包含多个job'
     _rec_name = 'number'
 
-    number = fields.Char(index=True, string='工单编号')
+    number = fields.Char(index=True, string='工单编号', copy=False, readonly=True, default='New')
     # persons = fields.One2many('xglabor.labor', 'work_order', string='劳工人员列表')
     work_place = fields.Many2one('xgstock.position', string='工作场地')
     company = fields.Many2one('xgcrm.company', string='雇主公司')
@@ -60,6 +60,22 @@ class WorkOrder(models.Model):
     end_time = fields.Datetime(string='结束时间')
     jobs = fields.One2many('xglabor.job', 'work_order', string='任务列表')
     confirm_person = fields.Many2one('res.users', string='审核人员')
+    state = fields.Selection([('new', u'新建'), ('workover', u'工作完成'), ('confirm', u'确认'), ('pay', u'已付款')], string='状态', readonly=True, index=True, copy=False, default='new')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('number', 'New') == 'New':
+            vals['number'] = self.env['ir.sequence'].next_by_code('xglabor.workorder.number') or '/'
+        return super(WorkOrder, self).create(vals)
+
+    # @api.multi
+    # def button_confirm(self):
+    #     for order in self:
+    #         if order.state not in ['new', 'workover']:
+    #             continue
+    #         else:
+    #             order.write({'state': 'confirm'})
+    #     return True
 
 
 class Job(models.Model):

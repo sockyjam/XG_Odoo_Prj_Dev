@@ -85,16 +85,24 @@
         <field name="priority" eval="2"/>
         <field name="arch" type="xml">
             <form string="XGLaborWorkOrderForm">
+                <!--<button name="button_confirm" states="new, workover" string="确认工单" type="object" class="oe_highlight"/>-->
                 <sheet>
+                    <h1>
+                        <field name="number" readonly="1"/>
+                    </h1>
                     <group col="4">
-                        <field name="number"  />
-                        <field name="company"  />
                         <field name="start_time" />
                         <field name="end_time" />
+                        <field name="company"  />
                         <field name="work_place"  />
                         <field name="confirm_person" readonly="True"/>
                     </group>
-                    <field name="jobs" />
+                </sheet>
+                <sheet>
+                    <group col="4">
+                        <p>任务列表</p>
+                        <field name="jobs" />
+                    </group>
                 </sheet>
             </form>
         </field>
