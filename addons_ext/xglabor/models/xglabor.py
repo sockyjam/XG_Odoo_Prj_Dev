@@ -60,7 +60,8 @@ class WorkOrder(models.Model):
     end_time = fields.Datetime(string='结束时间')
     jobs = fields.One2many('xglabor.job', 'work_order', string='任务列表')
     confirm_person = fields.Many2one('res.users', string='审核人员')
-    state = fields.Selection([('new', u'新建'), ('workover', u'工作完成'), ('confirm', u'确认'), ('pay', u'已付款')], string='状态', readonly=True, index=True, copy=False, default='new')
+    state = fields.Selection([('new', u'新建'), ('workover', u'工作完成'), ('confirm', u'确认'), ('pay', u'已付款')],
+                             string='状态', readonly=True, index=True, copy=False, default='new')
 
     @api.model
     def create(self, vals):
@@ -68,14 +69,14 @@ class WorkOrder(models.Model):
             vals['number'] = self.env['ir.sequence'].next_by_code('xglabor.workorder.number') or '/'
         return super(WorkOrder, self).create(vals)
 
-    # @api.multi
-    # def button_confirm(self):
-    #     for order in self:
-    #         if order.state not in ['new', 'workover']:
-    #             continue
-    #         else:
-    #             order.write({'state': 'confirm'})
-    #     return True
+    @api.multi
+    def button_confirm(self):
+        for order in self:
+            if order.state not in ['new', 'workover']:
+                continue
+            else:
+                order.write({'state': 'confirm', 'confirm_person': self.env.user.id})
+        return True
 
 
 class Job(models.Model):

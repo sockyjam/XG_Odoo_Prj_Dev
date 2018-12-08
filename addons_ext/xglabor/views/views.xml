@@ -74,6 +74,7 @@
                 <field name="company"  />
                 <field name="start_time"  />
                 <field name="end_time"  />
+                <field name="state"  />
             </tree>
         </field>
     </record>
@@ -85,7 +86,10 @@
         <field name="priority" eval="2"/>
         <field name="arch" type="xml">
             <form string="XGLaborWorkOrderForm">
-                <!--<button name="button_confirm" states="new, workover" string="确认工单" type="object" class="oe_highlight"/>-->
+                <header>
+                    <button name="button_confirm" type="object"  states="new,workover" string="确认工单" class="oe_highlight" />
+                    <field name="state" widget="statusbar" statusbar_visible="new,workover,confirm,pay" readonly="1"/>
+                </header>
                 <sheet>
                     <h1>
                         <field name="number" readonly="1"/>
@@ -93,16 +97,14 @@
                     <group col="4">
                         <field name="start_time" />
                         <field name="end_time" />
-                        <field name="company"  />
+                        <field name="company" domain="[('is_customer', '=', 'True')]" />
                         <field name="work_place"  />
                         <field name="confirm_person" readonly="True"/>
                     </group>
                 </sheet>
                 <sheet>
-                    <group col="4">
-                        <p>任务列表</p>
-                        <field name="jobs" />
-                    </group>
+                    <h3>任务列表</h3>
+                    <field name="jobs" />
                 </sheet>
             </form>
         </field>
